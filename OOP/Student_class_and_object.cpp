@@ -1,6 +1,5 @@
 // wap to create a Student class and minimum 6 attributes, also create methods to set and get data :-
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Student
