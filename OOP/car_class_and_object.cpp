@@ -1,7 +1,6 @@
 // wap to create a Car class and minimum 6 attributes, also create methods to set and get data :-
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Car
