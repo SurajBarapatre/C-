@@ -20,7 +20,7 @@ public:
         mm = (seconds % 3600) / 60;       // for Calculate second into remaining minutes
         ss = seconds % 60;                // for for calculate remaining seconds 
 
-        cout << "Your Time is = ";
+        cout << "Your Time is :- ";
 
         if (hh < 10)cout << "0"; cout << hh << ":";  // for prints 0 before a single-digit hour
 
