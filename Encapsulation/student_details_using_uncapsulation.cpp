@@ -44,7 +44,7 @@ int main()
 // for display the values stored in the object 
     Student a1, a2, a3;
 
-    a1.setStudent(1, "Sadhana Salunke", "BCA", "A", 90.50, "Delhi");
+    a1.setStudent(1, "Sadhana Salunke", "BCA", "A", 93.50, "Delhi");
     a2.setStudent(2, "Rupali Bhagwat", "IIT", "A+", 95.25, "Mumbai");
     a3.setStudent(3, "Kunjan Singh", "MCA", "A", 94.60, "Ahemdabad");
 
