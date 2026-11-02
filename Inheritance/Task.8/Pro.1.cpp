@@ -35,13 +35,13 @@ public:
         cout << "The Student ID is :- " << C::id << endl;
         cout << endl;
         
-        cout << "The Student Marks are :- " << marks << endl;
+        cout << "The Student Marks is :- " << marks << endl;
         cout <<endl;
         
-        cout << "The Student Fees are :- " << fees << endl;
+        cout << "The Student Fees is :- " << fees << endl;
         cout <<endl;
         
-        cout << "The Total Marks are :- " << total << endl;
+        cout << "The Total Marks is :- " << total << endl;
     }
 };
 
