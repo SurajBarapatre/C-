@@ -11,7 +11,6 @@ class Student
     bool isPass;
 
 public:
-
     static string school;       // static variable only declared in the class, do not assign value
 
     // Set Method
@@ -31,7 +30,7 @@ public:
     // Get Method
     void getStudent()
     {
-        cout << endl;
+        << endl;
         cout << "--------------: Student's Detail :---------------" << endl << endl;
 
         cout << "Student's Id - " << this->id << endl;
