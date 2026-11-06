@@ -1,4 +1,4 @@
-// Railway Reservation system :-
+// Railway Reservation System :-
 
 #include <iostream>
 using namespace std;
@@ -18,7 +18,6 @@ void copyText(char destination[], char source[])
     destination[i] = '\0';
 }
 
-
 // For Base class to store train details
 class TrainDetails
 {
@@ -28,7 +27,6 @@ class TrainDetails
     char trainTime[50];
 
 public:
-
 // For Default constructor
     TrainDetails()
     {
@@ -95,7 +93,6 @@ public:
         return trainTime;
     }
 };
-
 
 // Derived class for Train inherits TrainDetails
 class Train : public TrainDetails
@@ -206,10 +203,8 @@ public:
     }
 };
 
-
 //For static data member
 int Train::trainCount = 0;
-
 
 // RailwaySystem class for manages train records
 class RailwaySystem
@@ -353,9 +348,7 @@ public:
     }
 };
 
-
 // Main function for execute of menu
-
 int main()
 {
     RailwaySystem r1;                  // for create object
