@@ -125,7 +125,7 @@ public:
 // For Destructor
     ~Train()
     {
-// For Decreases count for registered train objects
+// Decreases count for registered train objects
         if (trainNumber != 0)
         {
             trainCount--;
