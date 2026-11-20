@@ -1,0 +1,444 @@
+Railway Reservation System Code Program Dry Run Process :-
+
+Assume user following inputs enter karta hai:
+Choice = 1
+
+Train Number = 101
+Train Name = Rajdhani
+Source = Surat
+Destination = Delhi
+Train Time = 10:30
+
+Choice = 2
+
+Choice = 3
+Search Train Number = 101
+
+Choice = 4
+
+-----------------------------------------------------------------------
+
+Step-by-step dry run
+
+Step 1: Program execution start process
+
+int main()
+{
+    RailwaySystem r1;
+
+
+-> main() function execute hota hai.
+-> RailwaySystem class ka object r1 create hota hai.
+------------------------------------------------------------------------
+
+Step 2: RailwaySystem constructor call process
+
+RailwaySystem()
+{
+    totalTrains = 0;
+}
+
+
+-> Constructor automatically call hota hai.
+-> totalTrains = 0 set hota hai.
+------------------------------------------------------------------------
+
+Step 3: Train array creation process
+
+Train trains[100];
+
+-> 100 Train objects create hote hain.
+-> Har object ka default constructor call hota hai.
+-> Har object ka trainNumber = 0 hota hai.
+-> TrainDetails ke character arrays empty initialize hote hain.
+------------------------------------------------------------------------
+
+Step 4: Static variable initialization process
+
+int Train::trainCount = 0;
+
+-> Static variable initialize hota hai.
+-> trainCount = 0 hota hai.
+------------------------------------------------------------------------
+
+Step 5: Menu function call process
+
+r1.menu();
+
+-> menu() function call hota hai.
+-> Menu display hota hai.
+
+1. Add New Train Record
+2. Display All Train Records
+3. Search Train by Number
+4. Exit
+------------------------------------------------------------------------
+
+Step 6: User selects choice 1 start process
+
+cin >> choice;
+
+-> User input deta hai.
+-> choice = 1
+------------------------------------------------------------------------
+
+Step 7: Switch case execute process
+
+case 1:
+    addTrain();
+    break;
+
+-> choice = 1 hone ke karan case 1 execute hota hai.
+-> addTrain() function call hota hai.
+------------------------------------------------------------------------
+
+Step 8: Check train records limit process
+
+if (totalTrains >= 100)
+
+-> totalTrains = 0
+-> 0 >= 100 = False
+-> Condition false hone ke karan train add karne ka process continue hota hai.
+-------------------------------------------------------------------------------
+
+Step 9: First train object selected process
+
+trains[totalTrains].inputTrainDetails();
+
+-> totalTrains = 0
+-> Isliye trains[0] object select hota hai.
+-> inputTrainDetails() function call hota hai.
+------------------------------------------------------------------------
+
+Step 10: Local character arrays created process
+
+char name[50];
+char from[50];
+char to[50];
+char time[10];
+
+-> Train details input karne ke liye 4 local arrays create hote hain.
+-> name, from, to aur time abhi empty hain.
+------------------------------------------------------------------------
+
+Step 11: Train number input process
+
+cin >> trainNumber;
+
+-> User enters 101.
+-> trainNumber = 101
+
+Step 12: Train name input process
+
+cin.width(50);
+cin >> name;
+-> User enters Rajdhani.
+-> name = "Rajdhani"
+
+Step 13: Source input process
+cin.width(50);
+cin >> from;
+-> User enters Surat.
+-> from = "Surat"
+
+Step 14: Destination input process
+cin.width(50);
+cin >> to;
+-> User enters Delhi.
+-> to = "Delhi"
+
+Step 15: Train time input process
+cin.width(10);
+cin >> time;
+-> User enters 10:30.
+-> time = "10:30"
+
+Step 16: Setter methods call process
+
+setTrainName(name);
+setSource(from);
+setDestination(to);
+setTrainTime(time);
+
+-> Ye methods base class TrainDetails ke private attributes mein values copy karte hain.
+-> copyText() function character by character values copy karta hai.
+-----------------------------------------------------------------------------------------
+
+Step 17: copyText() function execution process
+
+copyText(this->trainName, trainName);
+Assume source = "Rajdhani".
+int i = 0;
+
+while (source[i] != '\0')
+{
+    destination[i] = source[i];
+    i++;
+}
+
+destination[i] = '\0';
+
+
+Dry run:-
+
+Step	source[i]	destination[i]
+1	       R	         R
+2 	       a	         a
+3	       j	         j
+4	       d	         d
+5	       h	         h
+6	       a	         a
+7	       n	         n
+8	       i	         i
+9	      \0	         \0
+
+-> Loop complete hota hai.
+->Train name successfully copy ho jaata hai.
+-> isi tarah source, destination aur time bhi copy hote hain.
+------------------------------------------------------------------------
+
+Step 18: Train count increase process
+
+if (trainNumber != 0)
+{
+    trainCount++;
+}
+
+-> trainNumber = 101
+-> 101 != 0 = True
+-> trainCount = 1
+
+Step 19: Total train records increase
+totalTrains++;
+
+-> totalTrains = 0 + 1
+-> totalTrains = 1
+
+Step 20: Train added successfully 
+cout << "* Train Record Are Added Successfully! *";
+
+Output:
+* Train Record Are Added Successfully! *
+------------------------------------------------------------------------
+
+Step 21: Menu repeats process
+
+} while (choice != 4);
+
+-> choice = 1
+-> 1 != 4 = True
+- Menu dobara display hota hai.
+
+Display all trains – Choice 2
+------------------------------------------------------------------------
+
+Step 22: User selects choice 2 process
+
+cin >> choice;
+
+-> User enters 2.
+-> choice = 2
+
+Step 23: Switch case 2 executes
+
+case 2:
+    displayAllTrains();
+    break;
+
+
+-> displayAllTrains() function call hota hai.
+------------------------------------------------------------------------
+
+Step 24: Check train records process
+
+if (totalTrains == 0)
+
+-> totalTrains = 1
+-> 1 == 0 = False
+-> Display process continue hota hai.
+
+Step 25: For loop executes
+
+for (int i = 0; i < totalTrains; i++)
+{
+    trains[i].displayTrainDetails();
+}
+
+Dry run:
+Step	i	Condition	Action
+1	0	0 < 1 = True	Train details display
+2	1	1 < 1 = False	Loop stop
+------------------------------------------------------------------------
+
+Step 26: Display train details process
+
+trains[0].displayTrainDetails();
+
+Output:
+:-----------------------------------:
+Train Number is :- 101
+Train Name is   :- Rajdhani
+Source is :- Surat
+Destination is :- Delhi
+Train Time is  :- 10:30
+:-----------------------------------:
+
+Step 27: Display total train count process
+
+Train::getTrainCount();
+
+-> Static method call hota hai.
+-> trainCount = 1 return hota hai.
+
+Output:
+
+* Total Train Records * :- 1
+------------------------------------------------------------------------
+
+Step 28: Menu repeats process
+
+-> choice = 2
+-> 2 != 4 = True
+-> Menu dobara display hota hai.
+Search train – Choice 3
+------------------------------------------------------------------------
+Step 29: User selects choice 3 process
+
+case 3:
+    cin >> number;
+    searchTrainByNumber(number);
+    break;
+
+-> User enters 3.
+-> Program train number enter karne ke liye bolta hai.
+-> User enters 101.
+-> number = 101
+
+Step 30: Search function call process
+
+searchTrainByNumber(101);
+
+-> Search function ko 101 pass hota hai.
+
+Step 31: For loop starts
+
+for (int i = 0; i < totalTrains; i++)
+
+-> totalTrains = 1
+-> i = 0
+-> 0 < 1 = True
+
+Step 32: Train number comparison process
+
+if (trains[i].getTrainNumber() == number)
+
+-> trains[0].getTrainNumber() = 101
+-> number = 101
+-> 101 == 101 = True
+
+Step 33: Train record found
+
+cout << "* The Train Record is Found! *";
+
+Output:
+
+* The Train Record is Found! *
+
+Step 34: Display found train
+
+trains[i].displayTrainDetails();
+
+Output:
+
+Train Number is :- 101
+Train Name is   :- Rajdhani
+Source is :- Surat
+Destination is :- Delhi
+Train Time is  :- 10:30
+
+Step 35: Return statement executes
+
+return;
+
+-> Search function immediately stop ho jaata hai.
+-> Function ke baaki statements execute nahi hote.
+-> Control wapas menu() function mein jaata hai.
+
+Step 36: Menu repeats
+
+-> choice = 3
+-> 3 != 4 = True
+-> Menu dobara display hota hai.
+Exit – Choice 4
+------------------------------------------------------------------------
+
+Step 37: User selects choice 4 process
+
+cin >> choice;
+
+-> User enters 4.
+-> choice = 4
+
+Step 38: Switch case 4 executes process
+
+case 4:
+    cout << "* Exiting The System. Goodbye! *";
+    break;
+
+Output:
+* Exiting The System. Goodbye! *
+
+Step 39: Do-while condition check
+
+while (choice != 4);
+
+-> choice = 4
+-> 4 != 4 = False
+-> Menu loop stop ho jaata hai.
+
+Step 40: Main function ends
+
+return 0;
+
+
+-> Program successfully terminate hota hai.
+-> RailwaySystem object destroy hota hai.
+-> Uske andar ke 100 Train objects ke destructors call hote hain.
+-> Empty Train objects ka trainNumber = 0 hai, isliye unka destructor trainCount decrease nahi karta.
+- >trains[0] ka trainNumber = 101 hai, isliye uska destructor trainCount-- karta hai.Final trainCount = 0.
+------------------------------------------------------------------------------------------------------------
+
+Final Output – Short Summary
+
+1. Add New Train Record
+2. Display All Train Records
+3. Search Train by Number
+4. Exit
+
+Enter Your Choice :- 1
+
+Enter Train Number :- 101
+Enter Train Name :- Rajdhani
+Enter Source :- Surat
+Enter Destination :- Delhi
+Enter Train Time :- 10:30
+
+Train Record Are Added Successfully!
+
+Enter Your Choice :- 2
+
+Train Number is :- 101
+Train Name is   :- Rajdhani
+Source is :- Surat
+Destination is :- Delhi
+Train Time is  :- 10:30
+
+Total Train Records :- 1
+
+Enter Your Choice :- 3
+Enter The Train Number to Search :- 101
+The Train Record is Found!
+
+Enter Your Choice :- 4
+Exiting The System. Goodbye!
+:--------------------------------------:---------------------------------:---------------------------:
