@@ -1,10 +1,8 @@
 // Develop a Vehicle Registry System using C++ that demonstrates all types of inheritance and encapsulation. 
 // The system will allow users to manage a registry of different types of vehicles.
-
 #include <iostream>
 #include <string>
 using namespace std;
-
 // Base Vehicle Class
 class Vehicle
 {
@@ -17,7 +15,6 @@ class Vehicle
     public:
 // Static Member for Count Total Vehicles
         static int totalVehicles;
-
 // Default Constructor
         Vehicle()
         {
@@ -26,11 +23,9 @@ class Vehicle
         manufacturer = "Not Available";
         model = "Not Available";
         year = 0;
-
 // Increase Vehicle Count
         totalVehicles++;
         }
-
 // Parameterized Constructor
         Vehicle(int id, string manu, string mod, int yea)
         {
@@ -39,7 +34,6 @@ class Vehicle
             manufacturer = manu;
             model = mod;
             year = yea;
-
 // Increase for Vehicle Count
             totalVehicles++;
         }
@@ -52,7 +46,6 @@ class Vehicle
             model = mod;
             year = yea;
         }
-
 // Single Get Function to Display Vehicle Details
         void getVehicle()
         {
@@ -61,7 +54,6 @@ class Vehicle
             cout << "The Vehicle Model is:- " << model;
             cout << "The Vehicle Year is :- " << year;
         }
-
 // Function Check Vehicle ID for Searching
         bool checkVehicleID(int id)
         {
@@ -70,7 +62,6 @@ class Vehicle
             {
                 return true;
             }
-
             return false;
         }
 
@@ -80,7 +71,6 @@ class Vehicle
 // Call for Get Function
             getVehicle();
         }
-
 // Virtual Destructor
         virtual ~Vehicle()
         {
@@ -88,46 +78,38 @@ class Vehicle
             totalVehicles--;
         }
 };
-
 // Initialize Static Member
 int Vehicle::totalVehicles = 0;
 
-
 // Single Inheritance :-
-
+//----------------------
 // Car Class Inherit to Vehicle Class
 class Car : public Vehicle
 {
 // Private Data Member
     string fuelType;
-
     public:
 // Default Constructor
         Car()
         {
             fuelType = "Not Available";
         }
-
 // Set Function for Set Car Details
         void setCar(int id, string manu, string mod, int yea, string fuel)
         {
 // Set Base Class Data Members
         setVehicle(id, manu, mod, yea);
-
 // Set Car Data Member
             fuelType = fuel;
         }
-
 // Get Function for Display Car Details
         void getCar()
         {
 // Display Vehicle Details
             getVehicle();
-
 // for Display Car Details
             cout << "The Fuel Type is :- " << fuelType;
         }
-
 // Override Display Function for car object details
         void display()
         {
@@ -135,43 +117,36 @@ class Car : public Vehicle
         }
 };
 
-
 // Multilevel Inheritance:-
-
+//------------------------
 // ElectricCar Class Inherit for Car Class
 class ElectricCar : public Car
 {
 // Private Data Member
     float batteryCapacity;
-
     public:
 // Default Constructor
         ElectricCar()
         {
             batteryCapacity = 0;
         }
-
 // Set Function for Set Electric Car Details
         void setElectricCar(int id, string manu, string mod, int yea,
 		string fuel, float battery)
         {
 // Set Car Details
             setCar(id, manu, mod, yea, fuel);
-
 // Set Battery Capacity
             batteryCapacity = battery;
         }
-
 // Get Function for Display Electric Car Details
         void getElectricCar()
         {
 // Display Car Details
             getCar();
-
 // Display Battery Capacity
             cout << "The Battery Capacity is :- " << batteryCapacity << " kWh";
         }
-
 // Override Display Function for Electric car object details
         void display()
         {
@@ -180,42 +155,35 @@ class ElectricCar : public Car
 };
 
 // Multilevel Inheritance :-
-
+//-----------------------
 // SportsCar Class Inherit for ElectricCar Class
 class SportsCar : public ElectricCar
 {
 // Private Data Member
     int topSpeed;
-
     public:
-
 // Default Constructor
         SportsCar()
         {
             topSpeed = 0;
         }
-
 // Set Function to Set Sports Car Details
-        void setSportsCar(int id, string manu, string mod, int y,
+        void setSportsCar(int id, string manu, string mod, int yea,
                           string fuel, float battery, int speed)
         {
 // Set Electric Car Details
-            setElectricCar(id, manu, mod, y, fuel, battery);
-
+            setElectricCar(id, manu, mod, yea, fuel, battery);
 // Set Top Speed
             topSpeed = speed;
         }
-
 // Get Function for Display Sports Car Details
         void getSportsCar()
         {
 // Display Electric Car Details
             getElectricCar();
-
 // Display Top Speed
             cout << "The Top Speed is :- " << topSpeed << " km/h";
         }
-
 // Override Display Function for Sportcar Object details
         void display()
         {
@@ -223,9 +191,8 @@ class SportsCar : public ElectricCar
         }
 };
 
-
 // Hierarchical Inheritance :-
-
+//--------------------------
 // Sedan Class Inherit for Car Class
 class Sedan : public Car
 {
@@ -235,10 +202,10 @@ class Sedan : public Car
         {
         }
 // Set Function to Set Sedan Details
-        void setSedan(int id, string manu, string mod, int y, string fuel)
+        void setSedan(int id, string manu, string mod, int yea, string fuel)
         {
 // Set Car Details
-            setCar(id, manu, mod, y, fuel);
+            setCar(id, manu, mod, yea, fuel);
         }
 // Get Function to Display Sedan Details
         void getSedan()
@@ -254,6 +221,7 @@ class Sedan : public Car
 };
 
 // Hierarchical Inheritance :-
+//--------------------------
 // SUV Class Inherit for Car Class
 class SUV : public Car
 {
@@ -263,10 +231,10 @@ class SUV : public Car
         {
         }
 // Set Function to Set SUV Details
-        void setSUV(int id, string manu, string mod, int y, string fuel)
+        void setSUV(int id, string manu, string mod, int yea, string fuel)
         {
 // Set Car Details
-            setCar(id, manu, mod, y, fuel);
+            setCar(id, manu, mod, yea, fuel);
         }
 // Get Function to Display SUV Details
         void getSUV()
@@ -281,20 +249,18 @@ class SUV : public Car
             getSUV();
         }
 };
-
-// Base Class for Multiple Inheritance
+// Base Class for Multiple Inheritance :-
+//------------------------------------
 class Aircraft
 {
 // Private Data Member
     float flightRange;
-
     public:
 // Default Constructor
         Aircraft()
         {
             flightRange = 0;
         }
-
 // Set Function to Set Aircraft Details
         void setAircraft(float range)
         {
@@ -304,29 +270,26 @@ class Aircraft
 // Get Function to Display Aircraft Details
         void getAircraft()
         {
-            cout << "The Flight Range is :- " << flightRange << " kmph";
+            cout << "The Flight Range is :- " << flightRange << " kmp/h";
         }
 };
 
-
 // Multiple Inheritance:-
-
+//----------------------
 // FlyingCar Inherit for Car and Aircraft Classes
 class FlyingCar : public Car, public Aircraft
 {
     public:
-
     // Default Constructor
         FlyingCar()
         {
         }
-
 // Set Function for Set Flying Car Details
-        void setFlyingCar(int id, string manu, string mod, int y,
+        void setFlyingCar(int id, string manu, string mod, int yea,
                           string fuel, float range)
         {
 // Set Car Details
-            setCar(id, manu, mod, y, fuel);
+            setCar(id, manu, mod, yea, fuel);
 
 // Set Aircraft Details
             setAircraft(range);
@@ -336,7 +299,6 @@ class FlyingCar : public Car, public Aircraft
         {
 // Display Car Details
             getCar();
-
 // Display Aircraft Details
             getAircraft();
         }
@@ -346,7 +308,6 @@ class FlyingCar : public Car, public Aircraft
             getFlyingCar();
         }
 };
-
 // Vehicle Registry Class
 class VehicleRegistry
 {
@@ -371,7 +332,6 @@ class VehicleRegistry
             {
 // Store Vehicle Address in Pointer Array for vehical count
                 vehicles[total] = v;
-
 // Increase Registered Vehicle Count
                 total++;
             }
@@ -381,7 +341,6 @@ class VehicleRegistry
                 cout << "The Registry is Full !";
             }
         }
-
 // Function for Display All Register Vehicles
         void displayAllVehicles()
         {
