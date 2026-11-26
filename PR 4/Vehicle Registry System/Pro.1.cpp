@@ -70,7 +70,6 @@ public:
 // Initialize Static Member
 int Vehicle::totalVehicles = 0;
 
-
 // Vehicle Registry Class
 class VehicleRegistry
 {
